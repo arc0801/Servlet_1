@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Servlet Test</h1>
-	<h3><a href="./go.do?name=js&age=40">GO</a></h3>
+	<h1>Form Test</h1>
+	<form action="./go2.do?" method="get">
+		<input type="text" name="search" value="">
+		<input type="password" name="pw">
+		<button>CLICK</button>
+	</form>
 </body>
 </html>

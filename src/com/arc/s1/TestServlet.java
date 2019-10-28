@@ -1,6 +1,8 @@
 package com.arc.s1;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,33 +15,60 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TestServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    /**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+
+	/**
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RandomTest randomTest = new RandomTest();
-		randomTest.getNum();
-		String encoding = request.getCharacterEncoding();
-		String la = request.getLocalAddr();
-		int lp = request.getLocalPort();
-		String method = request.getMethod();
-		String sa = request.getRemoteAddr();
-		int sp = request.getRemotePort();
+	public TestServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RandomTest randomTest = new RandomTest();
+		int num = randomTest.getNum();
+		
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+		
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<style>");
+		out.print("#n {color : red}");
+		out.print("</style>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print("<h1 id=\"n\">"+num+name+age+"</h1>");
+		out.print("</body>");
+		out.print("</html>");
+
+		/*
+		 * String encoding = request.getCharacterEncoding(); String la =
+		 * request.getLocalAddr(); int lp = request.getLocalPort(); String method =
+		 * request.getMethod(); String sa = request.getRemoteAddr(); int sp =
+		 * request.getRemotePort();
+		 * 
+		 * System.out.println("Encoding : "+ encoding);
+		 * System.out.println("LocalAddr : "+ la); System.out.println("LocalPort : "+
+		 * lp); System.out.println("Method : "+ method);
+		 * System.out.println("RemoteAddr : "+ sa); System.out.println("RemotePort : "+
+		 * sp);
+		 */
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

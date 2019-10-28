@@ -20,9 +20,10 @@ public class RandomTest {
 	//멤버메서드
 	//메서드 선언 공식
 	//접근지정자 그외지정자 리턴타입 메서드명(매개변수) throws Exception {}
-	public void getNum() {
+	public int getNum() {
 		int num = random.nextInt(10);
 		System.out.println(num);
+		return num;
 	}
 	
 }
