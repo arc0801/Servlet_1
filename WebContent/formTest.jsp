@@ -8,9 +8,10 @@
 </head>
 <body>
 	<h1>Form Test</h1>
-	<form action="./go2.do?" method="get">
+	<form action="./go2.do?" method="post">
 		<input type="text" name="search" value="">
 		<input type="password" name="pw">
+		<input type="text" name="age">
 		<button>CLICK</button>
 	</form>
 </body>

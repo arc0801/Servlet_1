@@ -27,6 +27,13 @@ public class FormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Form Test Get");
+		String search = request.getParameter("search");
+		String pw = request.getParameter("pw");
+		int age = Integer.parseInt(request.getParameter("age"));
+		
+		System.out.println("search : "+search);
+		System.out.println("password : "+pw);
+		System.out.println("age : "+age*10);
 	}
 
 	/**
@@ -34,6 +41,7 @@ public class FormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Form Test Post");
+		doGet(request, response);
 	}
 
 }
